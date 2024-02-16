@@ -8,6 +8,7 @@ public class List304ImplAsLinkedList implements List304 {
     Element tail;
     @Override
     public void add(Integer e) throws EmptyElementException {
+        if (e == null) throw new EmptyElementException();
         Element current = new Element(e,index);
         index++;
         size++;
@@ -22,6 +23,7 @@ public class List304ImplAsLinkedList implements List304 {
 
     @Override
     public Integer get(int index) throws IndexOutOfBoundsException {
+        if (index >= size && index < 0) throw new IndexOutOfBoundsException();
         Element current = head;
         Integer result = 0;
         while (current!= null){
@@ -40,6 +42,7 @@ public class List304ImplAsLinkedList implements List304 {
 
     @Override
     public void delete(int index) throws IndexOutOfBoundsException {
+        if (index >= size && index < 0) throw new IndexOutOfBoundsException();
         Element current = head;
         Element prev = null;
         boolean flag = true;
